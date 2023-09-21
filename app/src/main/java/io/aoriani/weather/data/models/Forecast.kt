@@ -51,7 +51,7 @@ data class Forecast(
         val tempMax: Double,
 
         val pressure: Long,
-        val humidity: Long
+        val humidity: Int
     )
 
     @Serializable
@@ -65,7 +65,7 @@ data class Forecast(
 
     @Serializable
     data class Weather(
-        val id: Long,
+        val id: Int,
         val main: String,
         val description: String,
         val icon: String
