@@ -56,7 +56,7 @@ fun GaugePreview() {
 
 @Composable
 fun TemperatureModule(temperatureModel: TemperatureModel, modifier: Modifier = Modifier) {
-    Card(modifier = modifier.padding(all = 16.dp)) {
+    Card {
         Row(
             modifier = modifier
                 .fillMaxWidth()

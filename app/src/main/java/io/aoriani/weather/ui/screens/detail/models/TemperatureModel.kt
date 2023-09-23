@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.res.stringResource
 import io.aoriani.weather.R
+import io.aoriani.weather.domain.models.Weather
 
 @Immutable
 data class TemperatureModel(
@@ -28,3 +29,11 @@ data class TemperatureModel(
     @Composable
     fun max() = format(temp = max)
 }
+
+fun Weather.toTemperatureModel() =
+    TemperatureModel(
+        current = temperature,
+        feelsLike = feelsLikeTemperature,
+        min = minTemperature,
+        max = maxTemperature
+    )
