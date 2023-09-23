@@ -1,6 +1,5 @@
 package io.aoriani.weather.ui.screens.detail
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -18,6 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import io.aoriani.weather.domain.models.Weather
+import io.aoriani.weather.ui.screens.detail.components.DetailContent
 import io.aoriani.weather.ui.theme.WeatherAppTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -49,9 +50,18 @@ fun DetailScreen() {
             )
         }
     ) { innerPadding ->
-        Column(modifier = Modifier.padding(innerPadding)) {
-
-        }
+        DetailContent(
+            weather = Weather(
+                name = "San Bruno",
+                condition = Weather.Condition.Clear,
+                temperature = 69.0,
+                feelsLikeTemperature = 65.5,
+                minTemperature = 61.2,
+                maxTemperature = 73.4,
+                humidity = 33
+            ),
+            modifier = Modifier.padding(innerPadding)
+        )
     }
 }
 
