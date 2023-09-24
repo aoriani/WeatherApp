@@ -21,9 +21,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import io.aoriani.weather.domain.models.Weather
+import io.aoriani.weather.ui.TestTags
 import io.aoriani.weather.ui.screens.detail.components.DetailContent
 import io.aoriani.weather.ui.theme.WeatherAppTheme
 
@@ -53,7 +55,7 @@ fun DetailScreen(
                     )
                 },
                 navigationIcon = {
-                    IconButton(onClick = navigateUp) {
+                    IconButton(onClick = navigateUp, modifier = Modifier.testTag(TestTags.navigateUpButton)) {
                         Icon(
                             imageVector = Icons.Filled.ArrowBack,
                             contentDescription = null

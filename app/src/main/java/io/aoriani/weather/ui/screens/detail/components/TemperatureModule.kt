@@ -22,19 +22,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import io.aoriani.weather.R
+import io.aoriani.weather.ui.TestTags
 import io.aoriani.weather.ui.screens.detail.models.TemperatureModel
 import io.aoriani.weather.ui.theme.DarkRed
 import io.aoriani.weather.ui.theme.DarkSkyBlue
 import io.aoriani.weather.ui.theme.WeatherAppTheme
 
 @Composable
-internal fun Gauge(icon: ImageVector, iconTint: Color, label: String, temp: String) {
-    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Start) {
+internal fun Gauge(icon: ImageVector, iconTint: Color, label: String, temp: String, modifier: Modifier = Modifier) {
+    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Start, modifier = modifier) {
         Icon(icon, contentDescription = null, tint = iconTint)
         Spacer(modifier = Modifier.width(8.dp))
         Text(
@@ -68,14 +70,16 @@ fun TemperatureModule(temperatureModel: TemperatureModel, modifier: Modifier = M
                     icon = Icons.Default.Thermostat,
                     iconTint = Color.DarkGray,
                     label = stringResource(id = R.string.temp),
-                    temp = temperatureModel.current()
+                    temp = temperatureModel.current(),
+                    modifier = Modifier.testTag(TestTags.tempGauge)
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 Gauge(
                     icon = Icons.Default.ArrowDropDown,
                     iconTint = DarkSkyBlue,
                     label = stringResource(id = R.string.min),
-                    temp = temperatureModel.current()
+                    temp = temperatureModel.min(),
+                    modifier = Modifier.testTag(TestTags.minTempGauge)
                 )
 
             }
@@ -85,14 +89,16 @@ fun TemperatureModule(temperatureModel: TemperatureModel, modifier: Modifier = M
                     icon = Icons.Default.Waves,
                     iconTint = Color.DarkGray,
                     label = stringResource(id = R.string.feels_like),
-                    temp = temperatureModel.feelsLike()
+                    temp = temperatureModel.feelsLike(),
+                    modifier = Modifier.testTag(TestTags.feelsLikeGauge)
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 Gauge(
                     icon = Icons.Default.ArrowDropUp,
                     iconTint = DarkRed,
                     label = stringResource(id = R.string.max),
-                    temp = temperatureModel.feelsLike()
+                    temp = temperatureModel.max(),
+                    modifier = Modifier.testTag(TestTags.maxTempGauge)
                 )
             }
 

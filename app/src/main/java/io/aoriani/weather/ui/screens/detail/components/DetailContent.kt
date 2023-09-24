@@ -14,11 +14,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import io.aoriani.weather.R
 import io.aoriani.weather.domain.models.Weather
+import io.aoriani.weather.ui.TestTags
 import io.aoriani.weather.ui.screens.common.models.icon
 import io.aoriani.weather.ui.screens.detail.models.toTemperatureModel
 import io.aoriani.weather.ui.theme.WeatherAppTheme
