@@ -4,6 +4,7 @@ import androidx.annotation.VisibleForTesting
 import io.aoriani.weather.data.models.Forecast
 
 data class Weather(
+    val id: Long,
     val name: String,
     val condition: Condition,
     val temperature: Double,
@@ -51,6 +52,7 @@ internal fun kelvinToFahrenheit(kelvin: Double): Double {
 
 internal fun Forecast.toWeather(): Weather {
     return Weather(
+        id = this.id,
         name = this.name,
         condition = this.weather.firstOrNull()?.id?.toCondition() ?: Weather.Condition.Other,
         temperature = kelvinToFahrenheit(this.main.temp),

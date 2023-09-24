@@ -1,6 +1,5 @@
 package io.aoriani.weather.ui.resources.vector
 
-import android.graphics.Path.FillType
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Air
 import androidx.compose.material.icons.outlined.Dehaze

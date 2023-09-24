@@ -13,7 +13,6 @@ interface WeatherRepo {
 }
 
 class WeatherRepoImpl(private val restApi: OpenWeatherRestApi) : WeatherRepo {
-
     private val cache = hashMapOf<Long, Weather>()
     override suspend fun searchCity(city: String): Result<Weather> {
         return cache.values.firstOrNull { it.name.equals(city, ignoreCase = true) }

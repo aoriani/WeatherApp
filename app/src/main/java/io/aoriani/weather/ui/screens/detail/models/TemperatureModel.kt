@@ -2,9 +2,8 @@ package io.aoriani.weather.ui.screens.detail.models
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
-import androidx.compose.ui.res.stringResource
-import io.aoriani.weather.R
 import io.aoriani.weather.domain.models.Weather
+import io.aoriani.weather.ui.screens.common.models.formatAsFahrenheit
 
 @Immutable
 data class TemperatureModel(
@@ -15,19 +14,16 @@ data class TemperatureModel(
 
     ) {
     @Composable
-    private fun format(temp: Double): String = stringResource(id = R.string.temp_in_f, temp)
+    fun current() = current.formatAsFahrenheit()
 
     @Composable
-    fun current() = format(temp = current)
+    fun feelsLike() = feelsLike.formatAsFahrenheit()
 
     @Composable
-    fun feelsLike() = format(temp = feelsLike)
+    fun min() = min.formatAsFahrenheit()
 
     @Composable
-    fun min() = format(temp = min)
-
-    @Composable
-    fun max() = format(temp = max)
+    fun max() = max.formatAsFahrenheit()
 }
 
 fun Weather.toTemperatureModel() =

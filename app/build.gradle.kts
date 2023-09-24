@@ -67,6 +67,7 @@ dependencies {
     implementation("io.ktor:ktor-client-okhttp")
     implementation("io.ktor:ktor-serialization-kotlinx-json")
     implementation("io.ktor:ktor-client-content-negotiation")
+    implementation("io.ktor:ktor-client-logging")
     testImplementation("junit:junit:4.13.2")
     testImplementation("io.ktor:ktor-client-mock")
     testImplementation("io.mockk:mockk:1.13.7")
