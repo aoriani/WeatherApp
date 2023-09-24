@@ -3,7 +3,7 @@ package io.aoriani.weather.domain.models
 import io.aoriani.weather.data.models.Forecast
 import io.mockk.every
 import io.mockk.mockk
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class WeatherKtTest {

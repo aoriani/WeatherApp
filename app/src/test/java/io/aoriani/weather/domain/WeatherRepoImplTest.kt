@@ -3,17 +3,17 @@ package io.aoriani.weather.domain
 import io.aoriani.weather.data.OpenWeatherRestApi
 import io.aoriani.weather.data.models.Forecast
 import io.aoriani.weather.data.models.Forecasts
+import io.aoriani.weather.domain.models.Result
 import io.ktor.client.plugins.ClientRequestException
 import io.ktor.http.HttpStatusCode
 import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
-import org.junit.Test
-import io.aoriani.weather.domain.models.Result
-import io.mockk.coVerify
 import org.junit.Assert.assertSame
 import org.junit.Assert.assertTrue
+import org.junit.Test
 
 class WeatherRepoImplTest {
     @Test

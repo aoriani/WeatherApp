@@ -10,7 +10,6 @@ import androidx.lifecycle.viewmodel.CreationExtras
 import io.aoriani.weather.domain.WeatherRepo
 import io.aoriani.weather.domain.models.Result
 import io.aoriani.weather.domain.models.Weather
-import io.aoriani.weather.ui.screens.master.MasterViewModelImpl
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

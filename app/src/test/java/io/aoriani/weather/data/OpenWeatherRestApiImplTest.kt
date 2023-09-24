@@ -10,7 +10,6 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Assert.fail
 import org.junit.Test
-import java.lang.IllegalArgumentException
 
 class OpenWeatherRestApiImplTest {
 
