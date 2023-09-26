@@ -1,0 +1,75 @@
+@startuml
+
+package ui {
+    package navigation {
+        class Navigation<<Composable>>
+        class NavController
+    }
+
+    package resources {
+        package vectors {
+            class WeatherIcons
+        }
+    }
+
+    package screens {
+        package common {
+            package models {
+                class ConditionIcon<<Composable>>
+                class TemperatureFormatter<<Composable>>
+            }
+        }
+        package detail {
+            class DetailVieModel
+            class DetailScreen<<Composable>>
+        }
+
+        package master {
+            class MasterViewModel
+            class MasterScreen<<Composable>>
+        }
+    }
+
+    package theme {
+        class Color
+        class Theme
+        class Type
+    }
+    class TestTags
+    note left
+        Tags for UI test
+    end note
+}
+
+package domain {
+    class WeatherRepo
+    package models {
+        interface Result
+        interface Success
+        interface Error
+        interface NotFound
+        class Weather
+    }
+}
+
+package data {
+    class OpenWeatherRestApi
+    package models {
+        class Forecast
+    }
+}
+
+WeatherRepo -down-> OpenWeatherRestApi
+DetailVieModel -down-> WeatherRepo
+MasterViewModel -down-> WeatherRepo
+DetailScreen -down-> DetailVieModel
+MasterScreen -down-> MasterViewModel
+Navigation -down-> DetailScreen : creates
+Navigation -down-> MasterScreen : creates
+Result <|-- Success
+Result <|-- Error
+Result <|-- NotFound
+
+
+
+@enduml
