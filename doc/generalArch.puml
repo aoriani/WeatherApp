@@ -22,6 +22,8 @@ note right
      the data layer contains application data and business logic
 end note
 
+note "Interfaces are well defined and include\n models and interfaces" as note1
+
 [interface1] -down-> [interface2]
 [interface2] -down-> [interface3]
 [Checkout ViewModel] -right-> [interface1] : exports
